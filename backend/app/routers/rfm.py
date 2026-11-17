@@ -48,6 +48,17 @@ def create_entry(payload: EntryPayload) -> ActionResult:
     return ActionResult(ok=True, message="分层规则已登记", entry=entry)
 
 
+@router.post("/batch-actions", response_model=dict)
+def batch_actions(payload: EntryPayload) -> dict[str, Any]:
+    """多选多条记录逐条核对后整组提交：每条记录沿前进路径推进一步，并把状态同步到流失预警清单。"""
+    raw_ids = payload.values.get("ids") or []
+    entry_ids = [int(item) for item in raw_ids] if isinstance(raw_ids, list) else []
+    if not entry_ids:
+        raise HTTPException(status_code=400, detail="请先多选需要整组提交的分层规则记录")
+    results, message = service.batch_submit(entry_ids)
+    return {"ok": True, "message": message, "results": results}
+
+
 @router.post("/{entry_id}/actions", response_model=ActionResult)
 def run_action(entry_id: int, payload: EntryPayload) -> ActionResult:
     """对单条分层规则执行提交规则评审、启用规则、停用规则；不允许的动作会被拦下并说明原因。"""

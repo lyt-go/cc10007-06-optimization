@@ -5,6 +5,8 @@ import Overview from './views/Overview'
 import SequenceView from './views/sequence'
 import RfmView from './views/rfm'
 import ChurnView from './views/churn'
+import BoundchangeView from './views/boundchange'
+import ChurnincrView from './views/churnincr'
 import RecommendView from './views/recommend'
 import AttrmodelView from './views/attrmodel'
 import ActivityView from './views/activity'
@@ -21,7 +23,7 @@ import PushplanView from './views/pushplan'
 import MetricdrillView from './views/metricdrill'
 import TacticlibView from './views/tacticlib'
 
-const navItems = [{ label: "运营概览", path: "/" }, { label: "行为序列", path: "/sequence" }, { label: "RFM分层", path: "/rfm" }, { label: "流失预警", path: "/churn" }, { label: "智能推荐", path: "/recommend" }, { label: "归因建模", path: "/attrmodel" }, { label: "活动评估", path: "/activity" }, { label: "实时决策", path: "/realtime" }, { label: "预算分配", path: "/budget" }, { label: "LTV估算", path: "/lifetime" }, { label: "实验变体", path: "/abvariant" }, { label: "运营看板", path: "/dashboard" }, { label: "评分卡", path: "/scorecard" }, { label: "聚类分群", path: "/cluster" }, { label: "对比分析", path: "/comparison" }, { label: "数据漂移", path: "/datadrift" }, { label: "推送计划", path: "/pushplan" }, { label: "指标归因", path: "/metricdrill" }, { label: "策略库", path: "/tacticlib" }]
+const navItems = [{ label: "运营概览", path: "/" }, { label: "行为序列", path: "/sequence" }, { label: "RFM分层", path: "/rfm" }, { label: "流失预警", path: "/churn" }, { label: "边界变化", path: "/boundchange" }, { label: "增量名单", path: "/churnincr" }, { label: "智能推荐", path: "/recommend" }, { label: "归因建模", path: "/attrmodel" }, { label: "活动评估", path: "/activity" }, { label: "实时决策", path: "/realtime" }, { label: "预算分配", path: "/budget" }, { label: "LTV估算", path: "/lifetime" }, { label: "实验变体", path: "/abvariant" }, { label: "运营看板", path: "/dashboard" }, { label: "评分卡", path: "/scorecard" }, { label: "聚类分群", path: "/cluster" }, { label: "对比分析", path: "/comparison" }, { label: "数据漂移", path: "/datadrift" }, { label: "推送计划", path: "/pushplan" }, { label: "指标归因", path: "/metricdrill" }, { label: "策略库", path: "/tacticlib" }]
 
 export default function App() {
   const [operator] = useState('值班管理员')
@@ -48,6 +50,8 @@ export default function App() {
           <Route path="/sequence" element={<SequenceView />} />
           <Route path="/rfm" element={<RfmView />} />
           <Route path="/churn" element={<ChurnView />} />
+          <Route path="/boundchange" element={<BoundchangeView />} />
+          <Route path="/churnincr" element={<ChurnincrView />} />
           <Route path="/recommend" element={<RecommendView />} />
           <Route path="/attrmodel" element={<AttrmodelView />} />
           <Route path="/activity" element={<ActivityView />} />

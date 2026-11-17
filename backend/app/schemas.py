@@ -65,6 +65,36 @@ class ChurnEntry(BaseModel):
     field_6: str | None = None  # 模型准确率
     field_7: str | None = None  # 预警推送频率
 
+class BoundchangeEntry(BaseModel):
+    """分层边界变化记录明细结构。"""
+
+    field_0: str | None = None  # 变化编号
+    field_1: str | None = None  # 批次编号
+    field_2: str | None = None  # 规则版本
+    field_3: str | None = None  # 模型版本
+    field_4: str | None = None  # 变化边界
+    field_5: str | None = None  # 旧边界值
+    field_6: str | None = None  # 新边界值
+    field_7: str | None = None  # 影响用户段
+    field_8: str | None = None  # 记录状态
+    field_9: str | None = None  # 版本状态
+
+class ChurnincrEntry(BaseModel):
+    """流失预警增量名单明细结构。"""
+
+    field_0: str | None = None  # 明细编号
+    field_1: str | None = None  # 批次编号
+    field_2: str | None = None  # 用户段
+    field_3: str | None = None  # 规则版本
+    field_4: str | None = None  # 模型版本
+    field_5: str | None = None  # 是否跨边界
+    field_6: str | None = None  # 预警推送频率
+    field_7: str | None = None  # 名单状态
+    field_8: str | None = None  # 结算状态
+    field_9: str | None = None  # 名单条数
+    field_10: str | None = None  # 模型准确率
+    field_11: str | None = None  # 更新时间
+
 class RecommendEntry(BaseModel):
     """推荐策略明细结构。"""
 
